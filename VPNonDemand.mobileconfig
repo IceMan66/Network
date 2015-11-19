@@ -1,1 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>IPSec</key>
+		<dict>
+			<key>AuthenticationMethod</key>
+			<string>SharedSecret</string>
+			<key>OnDemandEnabled</key>
+			<integer>1</integer>
+			<key>OnDemandRules</key>
+			<array>
+			<!-- Turn off VPNONDEMAND if on matching WiFi network -->
+			<dict>
+				<key>InterfaceTypeMatch</key>
+				<string>WiFi</string>
+				<key>SSIDMatch</key>
+				<array>
+				<string>[SSID]</string>
+				</array>
+				<key>Action</key>
+				<string>Disconnect</string>
+			</dict>
+			<!-- Turn on VPNONDEMAND if matching IP or Domain -->
+			<dict>
+				<key>Action</key>
+				<string>EvaluateConnection</string>
+				<key>ActionParameters</key>
+				<array>
+				<dict>
+					<key>Domains</key>
+					<array>
+					<string>192.168.178.1</string>
+					<string>192.168.178.xx</string>
+					<string>192.168.178.xx</string>
+					</array> 
+					<key>DomainAction</key>
+					<string>ConnectIfNeeded</string>
+				</dict>
+				</array>
+			</dict>
+			</array>
+			<key>LocalIdentifier</key>
+			<string>[LoginID]</string>
+			<key>LocalIdentifierType</key>
+			<string>KeyID</string>
+			<key>RemoteAddress</key>
+			<string>[Public FQDN]</string>
+			<key>SharedSecret</key>
+			<string>[SharedSecret Key]</string>
+		</dict>
+			<key>PayloadDescription</key>
+			<string>Configures VPN settings, including authentication.</string>
+			<key>PayloadDisplayName</key>
+			<string>VPN (VPN on Demand)</string>
+			<key>PayloadIdentifier</key>
+			<string>[Public FQDN]</string>
+			<key>PayloadOrganization</key>
+			<string>VPN on Demand</string>
+			<key>PayloadType</key>
+			<string>com.apple.vpn.managed</string>
+			<key>PayloadUUID</key>
+			<string>[SharedSecret Key]</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>UserDefinedName</key>
+			<string>VPN on Demand</string>
+			<key>VPNType</key>
+			<string>IPSec</string>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>VPN on Demand</string>
+	<key>PayloadDisplayName</key>
+	<string>VPN on Demand</string>
+	<key>PayloadIdentifier</key>
+	<string>[Public FQDN</string>
+	<key>PayloadOrganization</key>
+	<string>VPN on Demand</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>[Public FQDN]</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
